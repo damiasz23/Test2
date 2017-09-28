@@ -10,8 +10,7 @@ import java.util.Set;
 public class Toys {
 
 
-    public Toys() {
-    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,17 +21,23 @@ public class Toys {
 
     @Embedded
     private Price price;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Color color;
 
     private int availability;
     private boolean discounted;
     private LocalDate expirationDate;
 
+    @Lob
+    private byte[] image;
+
+    @Lob
+    private byte[] pdf;
+
     @OneToOne
     private Atest atest;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private  Material material;
 
     @Transient
@@ -41,14 +46,19 @@ public class Toys {
     @OneToMany(mappedBy = "toys")
     Set<OrderPosition> orderPositionSet;
 
+    public Toys() {
+    }
 
-    public Toys(String lalka, Price dollPrice, Color white, int i, boolean b, LocalDate now, Material wood) {
+    public Toys(String name, Price price, Color color, int availability, boolean discounted, LocalDate expirationDate, byte[] image, Material material, byte[] pdf) {
         this.name = name;
         this.price = price;
         this.color = color;
         this.availability = availability;
         this.discounted = discounted;
+        this.expirationDate = expirationDate;
+        this.image = image;
         this.material = material;
+        this.pdf = pdf;
     }
 
     public Set<OrderPosition> getOrderPositionSet() {
