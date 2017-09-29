@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.Set;
 
 @Entity
@@ -25,6 +26,14 @@ public class Order implements Serializable{
 
     @OneToMany(mappedBy = "order")
     Set<OrderPosition> orderPositionSet;
+
+
+    public Order(String email, HashMap<Toys, Integer> orderPosition) {
+        this.email = email;
+        this.orderDate = LocalDateTime.now();
+        this.productAmount = new Long(orderPosition.values().stream().mapToInt(x->x).sum());
+    }
+
 
     public Set<OrderPosition> getOrderPositionSet() {
         return orderPositionSet;

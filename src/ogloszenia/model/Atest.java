@@ -11,9 +11,9 @@ public class Atest implements Serializable{
     private int id;
 
     @OneToOne(mappedBy = "atest")
-    Toys toys;
+    private Toys toys;
 
-    String atestNumber;
+    private String atestNumber;
 
 
     public Atest() {

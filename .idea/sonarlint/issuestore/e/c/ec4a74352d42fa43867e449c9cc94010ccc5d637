@@ -1,0 +1,7 @@
+
+:squid:S2129"Remove this "Long" constructor(òÁ“…8ðî§Íì+
+Wsquid:UselessImportCheck"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ
+ysquid:S3437"_Make this value-based field transient so it is not included in the serialization of this class.(½Ë¬­þÿÿÿÿ
+Hsquid:S1612",Replace this lambda with a method reference.(òÁ“…8ðî§Íì+
+Gsquid:S1948"-Make "orderPositionSet" private or transient.(Ã¬—¢ùÿÿÿÿ
+Qsquid:S1172"0Remove this unused method parameter "orderDate".(ó‚ÐÝúÿÿÿÿ8£¸–Íì+

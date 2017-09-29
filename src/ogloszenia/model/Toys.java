@@ -1,16 +1,14 @@
 package ogloszenia.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
 @Table(name = "tooys")
-public class Toys {
-
-
-
+public class Toys implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

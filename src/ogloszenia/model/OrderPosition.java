@@ -23,6 +23,11 @@ public class OrderPosition implements Serializable{
     public OrderPosition() {
     }
 
+    public OrderPosition(int numberOfOrder, Toys toys, Order order) {
+        this.numberOfOrder = numberOfOrder;
+        this.toys = toys;
+        this.order = order;
+    }
 
     public int getId() {
         return id;

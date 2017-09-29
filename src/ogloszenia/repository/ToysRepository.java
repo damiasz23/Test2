@@ -34,6 +34,7 @@ public class ToysRepository {
             String hgl = "SELECT t FROM Toys t WHERE t.price.value < :price";
             Query query = session.createQuery(hgl);
             query.setParameter("price", price);
+
             List<Toys> result = query.getResultList();
             return result;
         }
@@ -46,7 +47,23 @@ public class ToysRepository {
                 session.close();
             }
         }
+    }
+    public static Long countAll(){
+        Session session = null;
 
-
+        try {
+            session = HibernateUtil.openSession();
+            String hgl = "SELECT COUNT(t) FROM Toys t";
+            Query query = session.createQuery(hgl);
+            Long count = (Long) query.getSingleResult();
+            return count;
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return new Long(-1);
+        }finally {
+            if(session.isOpen()){
+                session.close();
+            }
+        }
     }
 }

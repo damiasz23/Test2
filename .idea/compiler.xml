@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="HelloWorld2" />
         <module name="Ogloszenia" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="HelloWorld2" target="1.8" />
       <module name="Ogloszenia" target="1.8" />
     </bytecodeTargetLevel>
   </component>

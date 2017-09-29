@@ -1,0 +1,11 @@
+
+squid:S1319"lThe type of the "toys" object should be an interface such as "Map" rather than the implementation "HashMap".(ƒ˜ñŒÿÿÿÿÿ8Äñ€Íì+
+Lsquid:S2095"+Close this "Session" in a "finally" clause.(¬§Èşÿÿÿÿ8¬ÃıÍì+
+Usquid:S1854"9Remove this useless assignment to local variable "order".(©°ÀÇ8½şÍì+
+dsquid:UselessImportCheck";Remove this unused import 'ogloszenia.model.OrderPosition'.(‰÷ŸÍ8¬ÃıÍì+
+Vsquid:UselessImportCheck".Remove this unused import 'java.util.HashSet'.(Ê‚êX8¬ÃıÍì+
+Fsquid:S1481"*Remove this unused "order" local variable.(©°ÀÇ8½şÍì+
+Xsquid:UselessImportCheck"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8¬ÃıÍì+
+Lsquid:S1172"+Remove this unused method parameter "toys".(ƒ˜ñŒÿÿÿÿÿ8ğ”‡Íì+
+\squid:S1854";Remove this useless assignment to local variable "session".(¬§Èşÿÿÿÿ8¬ÃıÍì+
+Hsquid:S1481",Remove this unused "session" local variable.(æ¨Íé8¬ÃıÍì+
