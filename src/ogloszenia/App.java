@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,9 +45,19 @@ public class App {
         toysWithPriceLessThen5.forEach(x -> System.out.println(x.getName()));
 
 
+        Long count = ToysRepository.countAll();
+        System.out.println("Liczba zabawek: " +count);
+
+        HashMap<Toys, Integer> listaZakupow = new HashMap<>();
+        listaZakupow.put(toysWithPriceLessThen11.stream().findAny().orElse(doll),
+                new Integer(5));
+
+        // TWORZENIE ZAMOWIENIA
+        OrderRepository.createOrder(listaZakupow, "test@gmail.com");
+
 //        OrderRepository.createOrder(listaZakupow, "test@gmail.com");
 
-        Optional<Toys> toy = ToysRepository.findToy(3);
+        Optional<Toys> toy = ToysRepository.findToy(14);
         if (toy.isPresent()) {
             toy.get().getId();
         }
@@ -63,6 +74,15 @@ public class App {
             t.setColor(Color.BLACK);
             t.setMaterial(Material.PLASTIC);
             ToysRepository.update(t);
+
+            System.out.println(OrderRepository.findAllOrdersByToys(t).size());
         }
+
+        String s = ToysRepository.findToysWithStanAndName().get(0).toString();
+
+        ToysRepository.updatePrice(new BigDecimal(55.30));
+
+
+        System.out.println(ToysRepository.findToysByNameLike("ar").size());
     }
 }

@@ -6,10 +6,8 @@ import ogloszenia.model.Toys;
 import ogloszeniar.hibernate.util.HibernateUtil;
 import org.hibernate.Session;
 
-import java.awt.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Query;
+import java.util.*;
 
 public class OrderRepository {
 
@@ -38,4 +36,28 @@ public class OrderRepository {
         }
         return false;
     }
+
+    public static List<Order> findAllOrdersByToys(Toys t){
+        Session session = null;
+
+        try {
+            session = HibernateUtil.openSession();
+            String hgl = "SELECT t FROM Order t " +
+                    "LEFT JOIN t.orderPositionSet op "+
+                    "WHERE op.toys.id = :id";
+            Query query = session.createQuery(hgl, Order.class);
+            query.setParameter("id", t.getId());
+            return query.getResultList();
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Collections.emptyList();
+        }finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+
+    }
+
 }

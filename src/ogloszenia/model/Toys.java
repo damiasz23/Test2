@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Set;
 
 @Entity
@@ -57,6 +58,35 @@ public class Toys implements Serializable{
         this.image = image;
         this.material = material;
         this.pdf = pdf;
+    }
+
+    public Toys(String name, int availability) {
+        this.name = name;
+        this.availability = availability;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public byte[] getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(byte[] pdf) {
+        this.pdf = pdf;
+    }
+
+    public Atest getAtest() {
+        return atest;
+    }
+
+    public void setAtest(Atest atest) {
+        this.atest = atest;
     }
 
     public Set<OrderPosition> getOrderPositionSet() {
@@ -137,5 +167,24 @@ public class Toys implements Serializable{
 
     public void setMaterial(Material material) {
         this.material = material;
+    }
+
+    @Override
+    public String toString() {
+        return "Toys{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", color=" + color +
+                ", availability=" + availability +
+                ", discounted=" + discounted +
+                ", expirationDate=" + expirationDate +
+                ", image=" + Arrays.toString(image) +
+                ", pdf=" + Arrays.toString(pdf) +
+                ", atest=" + atest +
+                ", material=" + material +
+                ", productPrice=" + productPrice +
+                ", orderPositionSet=" + orderPositionSet +
+                '}';
     }
 }
