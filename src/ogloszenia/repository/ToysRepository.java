@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class ToysRepository {
 
@@ -65,5 +66,61 @@ public class ToysRepository {
                 session.close();
             }
         }
+    }
+
+    public static Optional<Toys> findToy(int id){
+        Session session = null;
+        try {
+            session = HibernateUtil.openSession();
+            return Optional.ofNullable(session.find(Toys.class,id));
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Optional.empty();
+        }finally {
+            if(session !=null&&session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
+    public static boolean deliteToy(Toys toys) {
+        Session session = null;
+        try {
+            session = HibernateUtil.openSession();
+            session.beginTransaction();
+            session.delete(toys);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception ex) {
+            if (session.getTransaction().isActive() && session != null) {
+                session.getTransaction().rollback();
+            }
+            return false;
+        } finally {
+            if (session.isOpen() && session != null) {
+                session.close();
+            }
+        }
+    }
+        public static boolean update(Toys toys){
+            Session session = null;
+            try {
+                session = HibernateUtil.openSession();
+                session.beginTransaction();
+                session.update(toys);
+                session.getTransaction().commit();
+                return true;
+            }catch (Exception ex){
+                if(session!=null&&session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+                }
+                ex.printStackTrace();
+                return false;
+            }finally {
+                if(session != null && session.isOpen()){
+                    session.close();
+                }
+            }
     }
 }
