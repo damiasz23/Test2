@@ -27,7 +27,7 @@ public class Car {
     private BigDecimal basePrice;
     private BigDecimal insuranceCost;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "carSet")
     Set<Option> optionSet;
 
     @OneToMany(mappedBy = "car")

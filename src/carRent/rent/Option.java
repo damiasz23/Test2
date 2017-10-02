@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "options")
 public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +14,10 @@ public class Option {
     private String name;
 
     @ManyToMany
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "option_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "car_id")
+    )
     Set<Car> carSet;
 
 
