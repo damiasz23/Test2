@@ -15,7 +15,7 @@ public class Rent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Customer customer;
     private ZonedDateTime startDate;
@@ -31,6 +31,90 @@ public class Rent {
     private String description;
     private boolean discount;
 
+    public Rent() {
+    }
 
+    public Rent( Customer customer, ZonedDateTime startDate, ZonedDateTime endData, BigDecimal rentPrice, BigDecimal insurancePrice, Car car, String description, boolean discount) {
+        this.customer = customer;
+        this.startDate = startDate;
+        this.endData = endData;
+        this.rentPrice = rentPrice;
+        this.insurancePrice = insurancePrice;
+        this.car = car;
+        this.description = description;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public ZonedDateTime getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(ZonedDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public ZonedDateTime getEndData() {
+        return endData;
+    }
+
+    public void setEndData(ZonedDateTime endData) {
+        this.endData = endData;
+    }
+
+    public BigDecimal getRentPrice() {
+        return rentPrice;
+    }
+
+    public void setRentPrice(BigDecimal rentPrice) {
+        this.rentPrice = rentPrice;
+    }
+
+    public BigDecimal getInsurancePrice() {
+        return insurancePrice;
+    }
+
+    public void setInsurancePrice(BigDecimal insurancePrice) {
+        this.insurancePrice = insurancePrice;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(boolean discount) {
+        this.discount = discount;
+    }
 
 }
