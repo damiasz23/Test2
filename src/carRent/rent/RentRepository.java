@@ -1,7 +1,12 @@
 package carRent.rent;
 
+
 import ogloszeniar.hibernate.util.HibernateUtil;
 import org.hibernate.Session;
+import javax.persistence.Query;
+import java.util.Collections;
+import java.util.List;
+
 
 public class RentRepository {
 
@@ -22,5 +27,49 @@ public class RentRepository {
             }
         }
 
+    }
+    public static boolean remove(Rent rent){
+        Session session =null;
+
+        try {
+            session = HibernateUtil.openSession();
+            session.getTransaction().begin();
+            session.remove(rent);
+            session.getTransaction().commit();
+            return true;
+        }catch (Exception ex){
+            ex.printStackTrace();
+            if (session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+            }
+            return false;
+
+        }finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+
+    }
+
+    public static List<Rent> findAll(){
+        Session session =null;
+
+        try {
+            session = HibernateUtil.openSession();
+            String hgl = "SELECT r FROM Rent r ORDER BY r.startData DESC";
+            Query query = session.createQuery(hgl);
+            return query.getResultList();
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Collections.emptyList();
+
+        }finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
     }
 }

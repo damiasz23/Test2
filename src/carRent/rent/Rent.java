@@ -5,7 +5,9 @@ import carRent.rent.Customer;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 
 @Entity
@@ -116,5 +118,29 @@ public class Rent {
     public void setDiscount(boolean discount) {
         this.discount = discount;
     }
+
+
+
+    public boolean cancelRent(Customer customer) {
+        if (canWeCancel(customer)) {
+            return RentRepository.remove(this);
+        }
+        return false;
+    }
+
+    public boolean canWeCancel(Customer customer) {
+        return customerHasPrivillage(customer) && isRentInFuture();
+    }
+
+    public boolean isRentInFuture() {
+        return Duration.between(this.getStartDate(), ZonedDateTime.now().plusDays(1)).toDays() > 0;
+    }
+
+    public boolean customerHasPrivillage(Customer customer) {
+        return this.getCustomer().equals(customer);
+    }
+
+
+
 
 }

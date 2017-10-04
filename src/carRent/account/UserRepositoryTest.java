@@ -9,8 +9,8 @@ import java.util.Optional;
 
 public class UserRepositoryTest {
 
-        private static final String EMAIL = "test@gmail.com";
-        public static final String TAJNE_HASLO = "tajneHaslo";
+        private static final String EMAIL = "gawel@gmail.com";
+        public static final String TAJNE_HASLO = "123456";
 
 
         @Test
