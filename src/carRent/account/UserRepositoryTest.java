@@ -9,18 +9,21 @@ import java.util.Optional;
 
 public class UserRepositoryTest {
 
-    @Test
-    public void findUser(){
+        private static final String EMAIL = "test@gmail.com";
+        public static final String TAJNE_HASLO = "tajneHaslo";
 
-        Optional<User> user = UserRepository.findUserByEmailAndPassword("test@gmail.com", "1234");
-//        Assert.assertTrue("find User", user.ifPresent());
 
-    }
+        @Test
+        public void findUserByEmailAndPassword() throws Exception {
+            Optional<User> user = UserRepository.findUserByEmailAndPassword(EMAIL, TAJNE_HASLO);
+            Assert.assertTrue("find User", user.isPresent());
+        }
 
-    @Test
-    public void save() {
-        User user = new User("test@gmail.com", "1234");
-        Assert.assertTrue("add User", UserRepository.save(user));
+        @Test
+        public void save() throws Exception {
 
-    }
+            User user = new User(EMAIL, TAJNE_HASLO);
+
+            Assert.assertTrue("add User",UserRepository.save(user));
+        }
 }
