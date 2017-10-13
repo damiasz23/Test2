@@ -80,7 +80,7 @@ public class CarRepository {
             return Collections.emptyList();
         } finally {
             if (session != null && session.isOpen()) {
-                session.isOpen();
+                session.close();
             }
 
         }

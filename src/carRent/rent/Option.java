@@ -20,5 +20,27 @@ public class Option {
     )
     Set<Car> carSet;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Car> getCarSet() {
+        return carSet;
+    }
+
+    public void setCarSet(Set<Car> carSet) {
+        this.carSet = carSet;
+    }
 }

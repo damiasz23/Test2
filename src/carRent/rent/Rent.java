@@ -21,7 +21,7 @@ public class Rent {
     @JoinColumn
     private Customer customer;
     private ZonedDateTime startDate;
-    private ZonedDateTime endData;
+    private ZonedDateTime endDate;
 
     private BigDecimal rentPrice;
     private BigDecimal insurancePrice;
@@ -36,10 +36,10 @@ public class Rent {
     public Rent() {
     }
 
-    public Rent( Customer customer, ZonedDateTime startDate, ZonedDateTime endData, BigDecimal rentPrice, BigDecimal insurancePrice, Car car, String description, boolean discount) {
+    public Rent( Customer customer, ZonedDateTime startDate, ZonedDateTime endDate, BigDecimal rentPrice, BigDecimal insurancePrice, Car car, String description, boolean discount) {
         this.customer = customer;
         this.startDate = startDate;
-        this.endData = endData;
+        this.endDate = endDate;
         this.rentPrice = rentPrice;
         this.insurancePrice = insurancePrice;
         this.car = car;
@@ -71,12 +71,12 @@ public class Rent {
         this.startDate = startDate;
     }
 
-    public ZonedDateTime getEndData() {
-        return endData;
+    public ZonedDateTime getEndDate() {
+        return endDate;
     }
 
-    public void setEndData(ZonedDateTime endData) {
-        this.endData = endData;
+    public void setEndDate(ZonedDateTime endDate) {
+        this.endDate = endDate;
     }
 
     public BigDecimal getRentPrice() {

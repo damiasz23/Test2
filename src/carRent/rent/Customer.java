@@ -27,8 +27,8 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String firstName, String lastName, LocalDateTime birthday, LocalDateTime driversLicenceDate, Boolean isExperience, String phoneNumber) {
-        this.id = id;
+    public Customer(String firstName, String lastName, LocalDateTime birthday, LocalDateTime driversLicenceDate, Boolean isExperience, String phoneNumber) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
