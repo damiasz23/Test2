@@ -6,8 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 public class CarSpecServlet extends HttpServlet{
@@ -18,9 +21,14 @@ public class CarSpecServlet extends HttpServlet{
 
 
         String id = req.getParameter("carId");
+        String startDate = req.getParameter("startDate");
+        String endDate = req.getParameter("endDate");
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy").withZone(ZoneId.of("Europe/Warsaw"));
 
         Optional<Car> car = CarRepository.findCar(Integer.valueOf(id));
 
+//        car.ifPresent(x->x.rentCar());
 
         PrintWriter writer = resp.getWriter();
         writer.write("<html><head></head><body>");
@@ -52,6 +60,7 @@ public class CarSpecServlet extends HttpServlet{
 
         PrintWriter writer = resp.getWriter();
         writer.write("dodano");
+
 
         String id = req.getParameter("carId");
         Optional<Car> car = CarRepository.findCar(Integer.valueOf(id));

@@ -1,0 +1,5 @@
+
+=squid:S1989"(Add a "try/catch" block for "getWriter".(¼½Ù†
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(©’†¢ÿÿÿÿÿ
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Ý‰½œúÿÿÿÿ

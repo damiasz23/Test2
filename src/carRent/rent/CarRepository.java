@@ -15,6 +15,27 @@ import java.util.Optional;
 
 public class CarRepository {
 
+
+    public static List<Car> findAll(){
+        Session session = null;
+
+        try {
+
+            session = HibernateUtil.openSession();
+            String hgl = "SELECT c FROM Car c";
+            Query query = session.createQuery(hgl);
+            return query.getResultList();
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Collections.emptyList();
+        }finally {
+            if(session!=null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+
     public static boolean save(Car car){
         Session session = null;
         try {
@@ -29,7 +50,6 @@ public class CarRepository {
             if(session != null && session.isOpen()){
                 session.close();
             }
-
         }
     }
 
