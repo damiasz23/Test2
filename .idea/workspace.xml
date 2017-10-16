@@ -7,48 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96745d2d-8cff-40ab-8bff-7c87850de2a7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1d0b5c4be6a78c89bf90def212e8075af832a6ad" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/4/247d630e44b467fe4a8079490c176318e96a8745" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b15bbe0c0696720dac59c2698a7fa998b94d95b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43dda6aa9a8d37f4de87560b54b84a1871788f16" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/2/52867af2abefa4b998327f7ac0fb1f70636ab554" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a95453eef54b8bb6cfe920b79d7efef1a6c461fd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b05ab14a715564db1380ce72a76bfc29654213f0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/8/c89a863056511f7694342926694314150c16ebdd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c9fe5953636e47c5764cbacaaabbff63a4e79daf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/daa40e1dbcfbd834a59149f776608a4139a57688" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0bf9c22bd3cf65c2a01cb7ed5375fe9f72752aa2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/css/shop-item.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/detale.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/index.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/css/bootstrap-grid.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/css/bootstrap-grid.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/css/bootstrap-reboot.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/css/bootstrap-reboot.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/jquery/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/jquery/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/popper/popper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/vendor/popper/popper.min.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/Ogloszenia_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/Ogloszenia_war_exploded.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/HelloWorld2_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/HelloWorld2_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/carRent/rent/CarRepository.java" afterPath="$PROJECT_DIR$/src/carRent/rent/CarRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/carRent/rent/CarSpecServlet.java" afterPath="$PROJECT_DIR$/src/carRent/rent/CarSpecServlet.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,8 +80,8 @@
       <file leaf-file-name="CarSpecServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/carRent/rent/CarSpecServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="28" column="71" lean-forward="true" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
+            <state relative-caret-position="102">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1040,7 +999,7 @@
       <workItem from="1506642356960" duration="5719000" />
       <workItem from="1506648587944" duration="854000" />
       <workItem from="1508169321386" duration="1110000" />
-      <workItem from="1508171060721" duration="8264000" />
+      <workItem from="1508171060721" duration="8384000" />
     </task>
     <task id="LOCAL-00001" summary="Hibernate excercise">
       <created>1506538543494</created>
@@ -1126,7 +1085,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507920749081</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Hibernate excercise">
+      <created>1508180619170</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1508180619170</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1162,7 +1128,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16322000" />
+    <option name="totallyTimeSpent" value="16442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
@@ -1579,8 +1545,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/carRent/rent/CarSpecServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="28" column="71" lean-forward="true" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
+        <state relative-caret-position="102">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
