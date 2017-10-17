@@ -6,14 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.DateTimeException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 public class CarSpecServlet extends HttpServlet{
+
+    private final static String zoneId = "Europe/Warsaw";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -21,10 +20,7 @@ public class CarSpecServlet extends HttpServlet{
 
 
         String id = req.getParameter("carId");
-        String startDate = req.getParameter("startDate");
-        String endDate = req.getParameter("endDate");
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy").withZone(ZoneId.of("Europe/Warsaw"));
 
         Optional<Car> car = CarRepository.findCar(Integer.valueOf(id));
 
@@ -58,13 +54,25 @@ public class CarSpecServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        PrintWriter writer = resp.getWriter();
-        writer.write("dodano");
-
 
         String id = req.getParameter("carId");
+        String startDate = req.getParameter("startDate");
+        String endDate = req.getParameter("endDate");
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy").withZone(ZoneId.of("Europe/Warsaw"));
+
         Optional<Car> car = CarRepository.findCar(Integer.valueOf(id));
         Customer nowak = new Customer("Geniu", "Kapi", LocalDateTime.now(), LocalDateTime.now(),true,"432242443324");
-        car.ifPresent(x->x.rentCar(nowak, ZonedDateTime.now(), ZonedDateTime.now().plusDays(3)));
+
+        car.ifPresent(x->x.rentCar(nowak, parseDateFromCalendar(startDate),parseDateFromCalendar(endDate)));
+
+
+        PrintWriter writer = resp.getWriter();
+        writer.write("dodano");
+    }
+
+    public ZonedDateTime parseDateFromCalendar(String date){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(date, dateTimeFormatter).atStartOfDay(ZoneId.of(zoneId));
     }
 }
