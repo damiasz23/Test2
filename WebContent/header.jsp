@@ -1,7 +1,19 @@
-
+<%@ page import="carRent.rent.CustomerRepository" %>
+<%@ page import="java.util.Optional" %>
+<%@ page import="java.util.Currency" %>
+<%@ page import="carRent.rent.Customer" %>
 <%@ page language="java" contentType="text/html; harset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+  Integer userId = (Integer) request.getSession().getAttribute("userId");
+  if(userId!=null){
+    Optional<Customer> customer = CustomerRepository.findById(userId);
+    if(customer.isPresent()){
+        pageContext.setAttribute("customer", customer.get());
+    }
+  }
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +44,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">${customer.firstName} ${customer.lastName}</li>
             <li class="nav-item active">
               <a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>

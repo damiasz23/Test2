@@ -37,8 +37,4 @@ public class ListOfCarServlet extends HttpServlet{
                 "</body>" +
                         "</html>");
     }
-
-
-
-
 }
