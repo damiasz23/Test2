@@ -64,7 +64,7 @@ public class CarRepository {
             return Optional.empty();
         }finally {
             if(session!=null && session.isOpen()){
-                session.isOpen();
+                session.close();
             }
         }
 
