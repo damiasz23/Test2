@@ -44,7 +44,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-
+            <li class="nav-item">
+              <c:if test="${empty customer}"><
+                <a class="nav-link btn btn-danger" href="/login.jsp">Zaloguj</a>
+                </c:if>
+              <c:if test="${not empty customer}"><
+                <a class="nav-link btn btn-danger" href="/wyloguj">Wyloguj</a>
+              </c:if>
+            </li>
             <li class="nav-item">${customer.firstName} ${customer.lastName}</li>
             <li class="nav-item active">
               <a class="nav-link" href="#">Home

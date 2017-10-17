@@ -41,7 +41,7 @@
                 <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                 4.0 stars
 
-                <a href="/detale.jsp?carId=${car.id}" class="btn btn-primary">Zobacz szczegóły</a>
+                <a href="/details.jsp?carId=${car.id}" class="btn btn-primary">Zobacz szczegóły</a>
               </div>
             </div>
           </c:forEach>
