@@ -10,6 +10,8 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
+import static carRent.rent.ProjectUtil.parseDateFromCalendar;
+
 public class CarSpecServlet extends HttpServlet{
 
     private final static String zoneId = "Europe/Warsaw";
@@ -71,8 +73,4 @@ public class CarSpecServlet extends HttpServlet{
         writer.write("dodano");
     }
 
-    public ZonedDateTime parseDateFromCalendar(String date){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return LocalDate.parse(date, dateTimeFormatter).atStartOfDay(ZoneId.of(zoneId));
-    }
 }

@@ -18,5 +18,11 @@ public class LoginServlet extends HttpServlet {
         if(user.isPresent()){
             req.getSession().setAttribute("userId", user.get().getId());
         }
+
+        if(user.isPresent()) {
+            resp.sendRedirect("index.jsp");
+        }else {
+            resp.sendRedirect("login.jsp?error=true");
+        }
     }
 }

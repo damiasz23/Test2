@@ -49,19 +49,24 @@
                     <span id="reauth-email" class="reauth-email"></span>
                     <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
                     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="inputPassword2" name="passwordRepeat" class="form-control" placeholder="Password repeat" required>
+                    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First name" required>
+                    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Lastname" required>
+                    <input type="text" id="phoneNumber" name="phonNumber" class="form-control" placeholder="Phone number" required>
+                    <label>Day if birth</label>
+                    <input type="date" id="dayOfBirth" name="dayOfBirth" class="form-control">
+                    <label>Licence car day</label>
+                    <input type="date" id="licenceCarDay" name="licenceCarDay" class="form-control">
+
                     <c:if test="${not empty error}">
                     <div>
                         <p class="alert alert-danger">Wrong Login or Password</p>
 
                     </div>
                     </c:if>
-                    <div id="remember" class="checkbox">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-                    <a class="btn btn-lg btn-primary btn-block btn-signin" href="register.jsp">Sign up</a>
+
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+
 
                 </form><!-- /form -->
             </div>

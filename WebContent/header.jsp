@@ -43,18 +43,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <c:if test="${empty customer}"><
-                <a class="nav-link btn btn-danger" href="/login.jsp">Zaloguj</a>
-                </c:if>
-              <c:if test="${not empty customer}"><
-                <a class="nav-link btn btn-danger" href="/wyloguj">Wyloguj</a>
-              </c:if>
-            </li>
+
             <li class="nav-item">${customer.firstName} ${customer.lastName}</li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="/index.jsp">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -66,6 +58,15 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
+            </li>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item nav-link">
+              <c:if test="${empty customer}">
+                <a class="nav-link btn btn-danger" href="/login.jsp">Login</a>
+              </c:if>
+              <c:if test="${not empty customer}"><
+                <a class="nav-link btn btn-danger" href="/logout">Logout</a>
+              </c:if>
             </li>
           </ul>
         </div>
