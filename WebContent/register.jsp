@@ -57,8 +57,8 @@
                     <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First name" required>
                     <p>${error.get("firstName")}</p>
                     <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Lastname" required>
-                    <p>${error.get("lastName")}</p>
-                    <input type="text" id="phoneNumber" name="phonNumber" class="form-control" placeholder="Phone number" required>
+                    <p>${error.get("lastName")}</p>phoneNumber
+                    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone number" required>
                     <p>${error.get("phoneNumber")}</p>
                     <label>Day if birth</label>
                     <input type="date" id="dayOfBirth" name="dayOfBirth" class="form-control">
