@@ -73,7 +73,8 @@ public class RegisterServlet extends HttpServlet {
         }
 
         if(!isValid){
-            resp.sendRedirect("register.jsp");
+            req.setAttribute("error", errors);
+            req.getRequestDispatcher("register.jsp").forward(req, resp);
         }
         else {
             User user = new User(email, password);

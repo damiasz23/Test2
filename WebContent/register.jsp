@@ -3,12 +3,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="carRent.rent.RentRepository" %>
 <%@ page import="carRent.rent.Rent" %>
+<%@ page import="java.util.HashMap" %>
 <%@ page language="java" contentType="text/html; harset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
-   String error = request.getParameter("error");
+   HashMap<String, String> error = (HashMap<String, String>)request.getAttribute("error");
    if(error!=null && error.equals("true"))
        pageContext.setAttribute("error", error);
 
@@ -45,25 +46,26 @@
                 <a href="#" class="forgot-password">
                     Forgot the password?
                 </a>
-                <form class="form-signin" action="login" method="post">
+                <form class="form-signin" action="/register" method="post">
                     <span id="reauth-email" class="reauth-email"></span>
                     <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+                    <p>${error.get("email")}</p>
                     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                    <p>${error.get("password")}</p>
                     <input type="password" id="inputPassword2" name="passwordRepeat" class="form-control" placeholder="Password repeat" required>
+                    <p>${error.get("passwordRepeat")}</p>
                     <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First name" required>
+                    <p>${error.get("firstName")}</p>
                     <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Lastname" required>
+                    <p>${error.get("lastName")}</p>
                     <input type="text" id="phoneNumber" name="phonNumber" class="form-control" placeholder="Phone number" required>
+                    <p>${error.get("phoneNumber")}</p>
                     <label>Day if birth</label>
                     <input type="date" id="dayOfBirth" name="dayOfBirth" class="form-control">
+                    <p>${error.get("dayOfBirth")}</p>
                     <label>Licence car day</label>
                     <input type="date" id="licenceCarDay" name="licenceCarDay" class="form-control">
-
-                    <c:if test="${not empty error}">
-                    <div>
-                        <p class="alert alert-danger">Wrong Login or Password</p>
-
-                    </div>
-                    </c:if>
+                    <p>${error.get("licenceCarDay")}</p>
 
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
 
