@@ -67,7 +67,7 @@ public class RegisterServlet extends HttpServlet {
             errors.put("dayOfBirth", "Your age doesn't fit to our regulations");
         }
 
-        if(licenceCarDay == null || licenceCarDay.isEmpty()|| ProjectUtil.parseDateFromCalendar(dayOfBirth).isBefore(ProjectUtil.parseDateFromCalendar(licenceCarDay))){
+        if(licenceCarDay == null || licenceCarDay.isEmpty()|| ! ProjectUtil.parseDateFromCalendar(dayOfBirth).isBefore(ProjectUtil.parseDateFromCalendar(licenceCarDay))){
             isValid = false;
             errors.put("licenceCarDay","Add licence car day");
         }
