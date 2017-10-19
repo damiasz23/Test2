@@ -51,17 +51,17 @@
                 </a>
                 <form class="form-signin" action="/register" method="post">
                     <span id="reauth-email" class="reauth-email"></span>
-                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+                    <input type="email" value="${variable.get("email")}" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
                     <p>${error.get("email")}</p>
                     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
                     <p>${error.get("password")}</p>
                     <input type="password" id="inputPassword2" name="passwordRepeat" class="form-control" placeholder="Password repeat" required>
                     <p>${error.get("passwordRepeat")}</p>
-                    <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First name" required>
+                    <input type="text" id="firstName" value="${variable.get("firstName")}"  name="firstName" class="form-control" placeholder="First name" required>
                     <p>${error.get("firstName")}</p>
-                    <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Lastname" required>
+                    <input type="text" id="lastName" value="${variable.get("lastName")}" name="lastName" class="form-control" placeholder="Lastname" required>
                     <p>${error.get("lastName")}</p>phoneNumber
-                    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone number" required>
+                    <input type="text" id="phoneNumber" value="${variable.get("phoneNumber")}" name="phoneNumber" class="form-control" placeholder="Phone number" required>
                     <p>${error.get("phoneNumber")}</p>
                     <label>Day if birth</label>
                     <input type="date" id="dayOfBirth" name="dayOfBirth" class="form-control">

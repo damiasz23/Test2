@@ -28,6 +28,13 @@ public class Option {
         this.id = id;
     }
 
+    public Option(String name) {
+        this.name = name;
+    }
+
+    public Option() {
+    }
+
     public String getName() {
         return name;
     }

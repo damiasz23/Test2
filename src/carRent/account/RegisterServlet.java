@@ -28,11 +28,17 @@ public class RegisterServlet extends HttpServlet {
         String licenceCarDay = req.getParameter("licenceCarDay");
 
 
+        Optional<User> userByEmail = UserRepository.findUserByEmail(email);
+
         HashMap<String, String> errors = new HashMap<>();
         Boolean isValid = true;
         if(email == null || email.isEmpty()){
             isValid = false;
             errors.put("email", "Wrong email");
+        }
+        else if(userByEmail.isPresent()){
+            isValid = false;
+            errors.put("email", "Email already exist");
         }
         if(password == null || password.isEmpty() || password.length() < 6){
             isValid = false;

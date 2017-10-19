@@ -21,6 +21,15 @@
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>carRent.account.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>AddOptionServlet</servlet-name>
+  <servlet-class>carRent.rent.AddOptionServlet</servlet-class>
+</servlet>
+  <servlet>
+    <servlet-name>DeleteOptionServlet</servlet-name>
+    <servlet-class>carRent.rent.DeleteOptionServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>ListOfCarServlet</servlet-name>
@@ -41,5 +50,13 @@
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddOptionServlet</servlet-name>
+    <url-pattern>/addOption</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteOptionServlet</servlet-name>
+    <url-pattern>/removeOption</url-pattern>
   </servlet-mapping>
 </web-app>
