@@ -73,6 +73,14 @@ public class RegisterServlet extends HttpServlet {
         }
 
         if(!isValid){
+
+            HashMap<String, String> variable = new HashMap<>();
+            variable.put("email",email);
+            variable.put("firstName",firstName);
+            variable.put("lastName",lastName);
+            variable.put("phoneNumber",phoneNumber);
+
+            req.setAttribute("variable",variable);
             req.setAttribute("error", errors);
             req.getRequestDispatcher("register.jsp").forward(req, resp);
         }

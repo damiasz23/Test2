@@ -10,8 +10,11 @@
 
 <%
    HashMap<String, String> error = (HashMap<String, String>)request.getAttribute("error");
-   if(error!=null && error.equals("true"))
+   HashMap<String, String> variable = (HashMap<String, String>)request.getAttribute("variable");
+   if(error!=null)
        pageContext.setAttribute("error", error);
+    if(variable!=null)
+        pageContext.setAttribute("variable", variable);
 
 %>
 <!DOCTYPE html>
