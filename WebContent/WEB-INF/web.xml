@@ -29,7 +29,10 @@
     <servlet-name>DeleteOptionServlet</servlet-name>
     <servlet-class>carRent.rent.DeleteOptionServlet</servlet-class>
   </servlet>
-
+  <servlet>
+    <servlet-name>EditCarServlet</servlet-name>
+    <servlet-class>carRent.rent.EditCarServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>ListOfCarServlet</servlet-name>
@@ -58,5 +61,9 @@
   <servlet-mapping>
     <servlet-name>DeleteOptionServlet</servlet-name>
     <url-pattern>/removeOption</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditCarServlet</servlet-name>
+    <url-pattern>/editCar</url-pattern>
   </servlet-mapping>
 </web-app>

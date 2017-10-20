@@ -18,7 +18,7 @@ public class CarRepositoryTest {
         Car car = new Car("Super Mercedes",Make.SKODA,5,engine,CarSegment.VIP,
                 Color.RED,new BigDecimal(300), new BigDecimal(100));
 
-        CarRepository.save(car);
+        CarRepository.saveOrUpdate(car);
 
         car.rentCar(new Customer(), ZonedDateTime.now().plusDays(5), ZonedDateTime.now().plusDays(8));
 

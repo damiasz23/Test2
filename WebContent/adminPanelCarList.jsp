@@ -27,28 +27,25 @@
         <div class="col-lg-9">
             <div class="row">
                 <form method="post" action="addOption">
-                    <input type="text" name="optionName" class="form-control">
-                    <button class="btn btn-lg btn-primary btn-block btn-signin"
-                            type="submit">Save</button>
-
                 </form>
             </div>
+            <br>
+            <a href="/adminPanelEditCar.jsp" class="btn btn-primary">Add</a>
 
             <c:forEach items="${carList}" var="car">
                 <div class="row">
-                    <a href="/editCar" class="btn btn-primary">Add</a>
-
+                    <div class="col-md-8">
+                        <p>${car.model}</p>
                     </div>
                     <div class="col-md-2">
-                        <a href="/removeCar?carId=${car.id}" class="btn btn-primary">Edit</a>
+                        <a href="/adminPanelEditCar.jsp?carId=${car.id}" class="btn btn-primary">Edit</a>
                     </div>
                     <div class="col-md-2">
-                        <a href="/editCar?carId=${car.id}" class="btn btn-primary">Remove</a>
+                        <a href="/removeCar?carId=${car.id}" class="btn btn-primary">Remove</a>
                     </div>
-
                 </div>
             </c:forEach>
-        </div>
+
         <!-- /.col-lg-9 -->
 
     </div>

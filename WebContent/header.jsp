@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
 
-          <li class="nav-item">${customer.firstName} ${customer.lastName}</li>
+          <li class="nav-item nav-link">${customer.firstName} ${customer.lastName}</li>
             <li class="nav-item active">
               <a class="nav-link" href="/index.jsp">Home
                 <span class="sr-only">(current)</span>

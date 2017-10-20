@@ -1,11 +1,6 @@
-<%@ page import="carRent.rent.CarRepository" %>
-<%@ page import="carRent.rent.Car" %>
-<%@ page import="carRent.rent.CarSegment" %>
-<%@ page import="carRent.rent.Make" %>
-<%@ page import="carRent.rent.Color" %>
-<%@ page import="carRent.rent.EngineType" %>
-<%@ page import="carRent.rent.GearBox" %>
 <%@ page import="java.util.Optional" %>
+<%@ page import="carRent.rent.*" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; harset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -23,6 +18,8 @@
         if (car.isPresent())
             pageContext.setAttribute("car", car.get());
     }
+    List<Option> optionList = OptionRepository.findAll();
+    pageContext.setAttribute("optionList", optionList);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,50 +46,100 @@
 <!-- Page Content -->
 <div class="container">
 
-            <div class="card card-container">
+            <div class="card">
 
                 <form class="form-signin" action="/editCar" method="post">
-                    <input type="hidden" value="${car.id}" id="id" name="id" class="form-control">
+                    <div class="row">
+                    <div class="col-md-6">
+                        <input type="hidden" value="${car.id}" id="id" name="id" class="form-control">
 
-                    <input type="text" value="${car.model}" id="model" name="model" class="form-control" placeholder="Car model" required autofocus>
+                        <input type="text" value="${car.model}" id="model" name="model" class="form-control" placeholder="Car model" required autofocus>
 
-                    <input type="number" value="${car.insuranceCost}" id="insuranceCost" name="insuranceCost" class="form-control" placeholder="Car insurance cost" required autofocus>
+                        <input type="number" step="0.01" value="${car.insuranceCost}" id="insurenceCost" name="insurenceCost" class="form-control" placeholder="Car insurance cost" required autofocus>
 
-                    <input type="number" value="${car.capasity}" id="capasity" name="capasity" class="form-control" placeholder="Car capasity" required autofocus>
+                        <input type="number" value="${car.capasity}" id="capacity" name="capacity" class="form-control" placeholder="Car capacity" required autofocus>
 
-                    <input type="number" value="${car.basePrice}" id="basePrice" name="basePrice" class="form-control" placeholder="Car base price" required autofocus>
+                        <input type="number" step="0.01" value="${car.basePrice}" id="basePrice" name="basePrice" class="form-control" placeholder="Car base price" required autofocus>
 
-                    <select class="form-control" name="segment">
-                    <c:forEach var="segment" items="${CarSegment.values()}"><option value="${segment}">${segment}</option>
-                    </c:forEach>
-                    </select>
+                        <select class="form-control" name="segment">
+                            <c:forEach var="segment" items="${CarSegment.values()}">
+                                <c:if test="${car.carSegment.equals(segment)}">
+                                    <option value="${segment}" selected="selected">${segment}</option>
+                                </c:if>
+                                <c:if test="${!car.carSegment.equals(segment)}">
+                                    <option value="${segment}">${segment}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
 
 
-                    <select class="form-control" name="make">
-                        <c:forEach var="make" items="${Make.values()}"><option value="${make}">${make}</option>
+                        <select class="form-control" name="make">
+                            <c:forEach var="make" items="${Make.values()}">
+                                <c:if test="${car.make.equals(make)}">
+                                    <option value="${make}" selected="selected">${make}</option>
+                                </c:if>
+                                <c:if test="${!car.make.equals(make)}">
+                                    <option value="${make}">${make}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+
+                        <select class="form-control" name="color">
+                            <c:forEach var="color" items="${Color.values()}">
+                                <c:if test="${car.color.equals(color)}">
+                                    <option value="${color}" selected="selected">${color}</option>
+                                </c:if>
+                                <c:if test="${!car.color.equals(color)}">
+                                    <option value="${color}">${color}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+
+                        <select class="form-control" name="engineType">
+                            <c:forEach var="engineType" items="${EngineType.values()}">
+                                <c:if test="${car.engine.engineType.equals(engineType)}">
+                                    <option value="${engineType}" selected="selected">${engineType}</option>
+                                </c:if>
+                                <c:if test="${!car.engine.engineType.equals(engineType)}">
+                                    <option value="${engineType}">${engineType}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+
+                        <select class="form-control" name="gearBox">
+                            <c:forEach var="gearBox" items="${GearBox.values()}">
+                                <c:if test="${car.engine.gearBox.equals(gearBox)}">
+                                    <option value="${gearBox}" selected="selected">${gearBox}</option>
+                                </c:if>
+                                <c:if test="${!car.engine.gearBox.equals(gearBox)}">
+                                    <option value="${gearBox}">${gearBox}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
+
+                        <input type="number" value="${car.engine.torqe}" id="torque" name="torque" class="form-control" placeholder="Car engine torque" required autofocus>
+                        <input type="number" value="${car.engine.horsePower}" id="horsePower" name="horsePower" class="form-control" placeholder="Car engine horsePower" required autofocus>
+                        <input type="number" step="0.01" value="${car.engine.fuealCompsution}" id="fuelConsumption" name="fuelConsumption" class="form-control" placeholder="Car engine fueal compsution" required autofocus>
+                        <input type="number" value="${car.engine.engineCapasity}" id="engineCapacity" name="engineCapacity" class="form-control" placeholder="Car engine engine capacity" required autofocus>
+                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Save</button>
+                    </div>
+                    <div class="col-md-6">
+                        <c:forEach var="option" items="${optionList}" varStatus="j">
+                            <div class="row">
+                            <label>
+                                <c:if test="${car.optionSet.contains(option)}">
+                                    <input checked="checkbox" type="checkbox" name="option_${j.index}" class="checkbox-primary"/>
+                                </c:if>
+                                <c:if test="${!car.optionSet.contains(option)}">
+                            <input type="checkbox" name="option_${j.index}" class="checkbox-primary"/>
+                                </c:if>
+                                ${option.name}
+
+                            </label>
+                            </div>
                         </c:forEach>
-                    </select>
-
-                    <select class="form-control" name="color">
-                        <c:forEach var="color" items="${Color.values()}"><option value="${color}">${color}</option>
-                        </c:forEach>
-                    </select>
-
-                    <select class="form-control" name="engineType">
-                        <c:forEach var="engineType" items="${EngineType.values()}"><option value="${engineType}">${engineType}</option>
-                        </c:forEach>
-                    </select>
-
-                    <select class="form-control" name="gearBox">
-                        <c:forEach var="gearBox" items="${GearBox.values()}"><option value="${gearBox}">${gearBox}</option>
-                        </c:forEach>
-                    </select>
-
-                    <input type="number" value="${car.engine.torqe}" id="torqe" name="torqe" class="form-control" placeholder="Car engine torqe" required autofocus>
-                    <input type="number" value="${car.engine.horsePower}" id="horsePower" name="horsePower" class="form-control" placeholder="Car engine horsePower" required autofocus>
-                    <input type="number" value="${car.engine.fuealCompsution}" id="fuealCompsution" name="fuealCompsution" class="form-control" placeholder="Car engine fueal compsution" required autofocus>
-                    <input type="number" value="${car.engine.engineCapasity}" id="engineCapasity" name="engineCapasity" class="form-control" placeholder="Car engine engine capasity" required autofocus>
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+                    </div>
+                    </div>
                 </form><!-- /form -->
             </div>
         </div>

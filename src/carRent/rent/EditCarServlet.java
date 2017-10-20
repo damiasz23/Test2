@@ -28,55 +28,52 @@ public class EditCarServlet extends HttpServlet {
 
 
         boolean isValid = true;
-        if(id!=null && id.trim().isEmpty()){
+
+        if(model==null || model.trim().isEmpty()){
+            isValid = false;
+        }
+        if(insurenceCost==null || insurenceCost.trim().isEmpty()){
+            isValid = false;
+        }
+        if(capacity==null || capacity.trim().isEmpty()){
+            isValid = false;
+        }
+        if(baseProce==null || baseProce.trim().isEmpty()){
             isValid = false;
         }
 
-        if(model!=null && model.trim().isEmpty()){
-            isValid = false;
-        }
-        if(insurenceCost!=null && insurenceCost.trim().isEmpty()){
-            isValid = false;
-        }
-        if(capacity!=null && capacity.trim().isEmpty()){
-            isValid = false;
-        }
-        if(baseProce!=null && baseProce.trim().isEmpty()){
+        if(segment==null || segment.trim().isEmpty()){
             isValid = false;
         }
 
-        if(segment!=null && segment.trim().isEmpty()){
+        if(color==null || color.trim().isEmpty()){
             isValid = false;
         }
 
-        if(color!=null && color.trim().isEmpty()){
+        if(gearBox==null || gearBox.trim().isEmpty()){
             isValid = false;
         }
 
-        if(gearBox!=null && gearBox.trim().isEmpty()){
+        if(engineType==null || engineType.trim().isEmpty()){
             isValid = false;
         }
 
-        if(engineType!=null && engineType.trim().isEmpty()){
+        if(torque==null || torque.trim().isEmpty()){
             isValid = false;
         }
 
-        if(torque!=null && torque.trim().isEmpty()){
+        if(horsePower==null || horsePower.trim().isEmpty()){
             isValid = false;
         }
 
-        if(horsePower!=null && horsePower.trim().isEmpty()){
+        if(fuelConsumption==null || fuelConsumption.trim().isEmpty()){
             isValid = false;
         }
 
-        if(fuelConsumption!=null && fuelConsumption.trim().isEmpty()){
+        if(engineCapacity==null || engineCapacity.trim().isEmpty()){
             isValid = false;
         }
-
-        if(engineCapacity!=null && engineCapacity.trim().isEmpty()){
-            isValid = false;
-        }
-        if(make!=null && make.trim().isEmpty()){
+        if(make==null || make.trim().isEmpty()){
             isValid = false;
         }
 
@@ -94,8 +91,15 @@ public class EditCarServlet extends HttpServlet {
         Integer _horsePower = null;
         Integer _torque = null;
 
+
         try {
             _carId = Integer.valueOf(id);
+        }catch (Exception ex){
+
+        }
+
+        try {
+
             _make = Make.valueOf(make);
             _capacity = Integer.valueOf(capacity);
             _carSegment = CarSegment.valueOf(segment);
@@ -113,6 +117,15 @@ public class EditCarServlet extends HttpServlet {
         }catch (Exception ex){
             ex.printStackTrace();
             isValid = false;
+        }
+        if(isValid){
+            Engine engine = new Engine(_engineCapacity, _engineType, _fuelConsumption,_gearBox,_horsePower, _torque);
+            Car car = new Car(model, _make, _capacity, engine, _carSegment, _color,_basePrice,_insuranceCost);
+            if(_carId!=null){
+                car.setId(_carId);
+            }
+            CarRepository.saveOrUpdate(car);
+            resp.sendRedirect("adminPanelCarList.jsp");
         }
 
     }
