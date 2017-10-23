@@ -3,11 +3,27 @@
 <%@ page import="java.util.List" %>
 <%@ page import="carRent.rent.RentRepository" %>
 <%@ page import="carRent.rent.Rent" %>
+<%@ page import="carRent.account.UserRepository" %>
+<%@ page import="carRent.account.User" %>
+<%@ page import="java.util.Optional" %>
 <%@ page language="java" contentType="text/html; harset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
+    Cookie[] cookies = request.getCookies();
+        for (Cookie c : cookies) {
+            if (c.getName().equals("remember")) {
+                Optional<User> userByEmail = UserRepository.findUserByEmail(c.getValue());
+                if (userByEmail.isPresent()) {
+                    request.getSession().setAttribute("userId", userByEmail.get().getId());
+                    response.sendRedirect("index.jsp");
+                    return;
+                }
+            }
+        }
+
+
    String error = request.getParameter("error");
    if(error!=null && error.equals("true"))
        pageContext.setAttribute("error", error);
@@ -57,7 +73,7 @@
                     </c:if>
                     <div id="remember" class="checkbox">
                         <label>
-                            <input type="checkbox" value="remember-me"> Remember me
+                            <input type="checkbox" value="remember-me" name="remember"> Remember me
                         </label>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>

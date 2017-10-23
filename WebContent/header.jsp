@@ -2,6 +2,8 @@
 <%@ page import="java.util.Optional" %>
 <%@ page import="java.util.Currency" %>
 <%@ page import="carRent.rent.Customer" %>
+<%@ page import="carRent.account.UserRepository" %>
+<%@ page import="carRent.account.User" %>
 <%@ page language="java" contentType="text/html; harset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>

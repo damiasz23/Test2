@@ -31,14 +31,18 @@ public class OptionRepository {
         Session session = null;
         try {
             session = HibernateUtil.openSession();
-            session.save(option);
+            session.getTransaction().begin();
+            session.saveOrUpdate(option);
+            session.getTransaction().commit();
             return true;
-
         }catch (Exception ex){
+            if(session!=null && session.getTransaction().isActive()){
+                session.getTransaction().rollback();
+            }
             ex.printStackTrace();
             return false;
         }finally {
-            if(session !=null && session.isOpen()){
+            if(session != null && session.isOpen()){
                 session.close();
             }
         }
@@ -65,6 +69,25 @@ public class OptionRepository {
 
         } finally {
             if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+    public static List<Option> findAllByIdList(List<Integer> idList){
+        Session session = null;
+
+        try {
+            session = HibernateUtil.openSession();
+            String hgl = "SELECT o FROM Option o where o.id IN (:idList)";
+            Query query = session.createQuery(hgl);
+            query.setParameter("idList", idList);
+            return query.getResultList();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Collections.emptyList();
+        }finally {
+            if(session!=null && session.isOpen()){
                 session.close();
             }
         }
